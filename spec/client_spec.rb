@@ -36,11 +36,11 @@ describe(Client) do
   describe("#stylist_id") do
     it("lets you read the list ID out") do
       test_client = Client.new({:name => "Lyla", :stylist_id => 1})
-      expect(test_client.list_id()).to(eq(1))
+      expect(test_client.stylist_id()).to(eq(1))
     end
   end
 
-  describe("#==") do
+  describe('#==') do
     it("is the same client if it has the same name and list id") do
       client1 = Client.new({:name => "Lyla", :stylist_id => 1})
       client2 = Client.new({:name => "Lyla", :stylist_id => 1})

@@ -13,17 +13,17 @@ define_singleton_method(:all) do
   clients = []
   returned_clients.each() do |client|
     name = client.fetch("name")
-    stylist_id = stylist.fetch("stylist_id").to_i()
+    stylist_id = client.fetch("stylist_id").to_i()
     clients.push(Client.new({:name => name, :stylist_id => stylist_id}))
-end
-clients
+  end
+  clients
 end
 
 define_method(:save) do
-  DB.exec("INSERT INTO clients (name, stylist_id) VALUES ('#{@name}',#{@stylist_id};")
+  DB.exec("INSERT INTO clients (name, stylist_id) VALUES ('#{@name}',#{@stylist_id});")
 end
 
-define_method(:==) do |another_stylist|
-  self.name().==(another_client.name()).&(self.stylist_id()).==(another_client.stylist_id())
+define_method(:==) do |another_client|
+  self.name().==(another_client.name()).&(self.stylist_id().==(another_client.stylist_id()))
 end
 end
