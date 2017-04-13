@@ -34,7 +34,7 @@ end
 
 describe('#save') do
   it("returns an array of stylists") do
-    stylist = Stylist.new(:name => 'Brian', :id => nil)
+    stylist = Stylist.new({:name => 'Brian', :id => nil})
     stylist.save()
     expect(Stylist.all()).to(eq([stylist]))
   end

@@ -4,8 +4,10 @@ also_reload("lib/**/*.rb")
 require("./lib/client")
 require("./lib/stylist")
 require('pg')
+require('pry')
 
-DB = PG.connect({:dbname => "to_do_test"})
+
+DB = PG.connect({:dbname => "hair_salon"})
 
 get("/") do
   erb(:index)
@@ -17,9 +19,9 @@ get("/stylists/new") do
 
  post("/stylists") do
    name = params.fetch("name")
-   stylist = Stylist.new({:name => name, id => nil})
+   stylist = Stylist.new({:name => name, :id => nil})
    stylist.save()
-   erb(:stylist_success)
+   erb(:success)
  end
 
  get('/stylists') do
@@ -28,7 +30,7 @@ get("/stylists/new") do
  end
 
 get("/stylists/:id") do
-  @stylist = Stylist.find(params.fetch("id").to_i())
+  @stylist = Stylist.find(params.fetch('id').to_i())
   @stylists = Stylist.all()
   erb(:stylist)
 end
@@ -37,7 +39,7 @@ post("/clients") do
   name = params.fetch("name")
   stylist_id = params.fetch("stylist_id").to_i()
   @stylist = Stylist.find(stylist_id)
-  @client = Stylist.new({:name => name, :stylist_id => stylist_id})
+  @client = Client.new({:name => name, :stylist_id => stylist_id, :id => nil})
   @client.save()
   erb(:client_success)
 end
