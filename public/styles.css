@@ -1,0 +1,60 @@
+body
+{
+  background-image:url('/image/hair.jpg');
+}
+
+h1
+{
+  margin: 1em 0 0.5em 0;
+  font-weight: 100;
+  text-transform: uppercase;
+  font-style: bold;
+  margin-left: 20%;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 58px;
+  line-height: 54px;
+  text-shadow: 2px 5px 0 rgba(0,0,0,0.2);
+  color: red;
+}
+
+.links
+{
+  font-size: 58px;
+  margin-left: 30%;
+  font-family: 'Josefin Sans', sans-serif;
+}
+
+h2
+{
+  margin: 1em 0 0.5em 0;
+  font-weight: 100;
+  text-transform: uppercase;
+  font-style: bold;
+  margin-left: 60%;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 58px;
+  line-height: 54px;
+  text-shadow: 2px 5px 0 rgba(0,0,0,0.2);
+  color: green;
+}
+
+.list
+{
+  font-style: bold;
+  margin-left: 60%;
+  font-size: 38px;
+}
+
+h3
+{
+  margin: 1em 0 0.5em 0;
+  font-weight: 100;
+  text-transform: uppercase;
+  font-style: bold;
+  margin-left: 60%;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 38px;
+  line-height: 54px;
+  text-shadow: 2px 5px 0 rgba(0,0,0,0.2);
+  color: green;
+}

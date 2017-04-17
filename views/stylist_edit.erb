@@ -6,11 +6,11 @@
   <label for="name">Rename your list:</label>
   <input id="name" name="name" type="text">
 
-  <button type="submit">Update</button>
+  <button type="submit" class='btn-success'>Update</button>
 </form>
 
 <form action="/stylists/<%= @stylist.id() %>" method="post">
   <input name="_method" type="hidden" value="delete">
 
-  <button type="submit">Delete list</button>
+  <button type="submit" class="btn btn-danger">Delete list</button>
 </form>

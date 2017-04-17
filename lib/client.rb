@@ -20,12 +20,15 @@ class Client
     clients
   end
 
-  define_method(:find) do |id|
-      result = DB.exec("SELECT * FROM clients WHERE id = #{id};")
-      name = result.first.fetch('name')
-      stylist_id = Integer(result.first.fetch('stylist_id'))
-      Client.new({:id => id, :name => name, :stylist_id => stylist_id})
-    end
+  define_singleton_method(:find) do |id|
+ found_client = nil
+ Client.all().each() do |client|
+   if client.id().==(id)
+     found_client = client
+   end
+ end
+ found_client
+end
 
   define_method(:save) do
     result = DB.exec("INSERT INTO clients (name, stylist_id) VALUES ('#{@name}',#{@stylist_id}) RETURNING id;")
@@ -39,7 +42,10 @@ class Client
   end
 
   define_method(:update) do |attributes|
-    DB.exec("UPDATE clients SET name = '#{name}' WHERE id = #{self.id()};")
+    @name = attributes.fetch(:name, @name)
+    @stylist_id = attributes.fetch(:stylist_id, @stylist_id)
+    @id = self.id()
+    DB.exec("UPDATE clients SET name='#{@name}', stylist_id=#{@stylist_id} WHERE id=#{@id};")
   end
 
   define_method(:stylists) do
